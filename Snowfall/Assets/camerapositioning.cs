@@ -5,8 +5,10 @@ using UnityEngine;
 public class camerapositioning : MonoBehaviour
 {
     public GameObject player;
-    public float vert_sens = 1f;
-    public float horiz_sens = 1f;
+    public float vert_sens;
+    public float horiz_sens;
+    public float x_camera_adjust;
+    public float y_camera_adjust;
     Vector3 currentAngle  = Vector3.zero;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class camerapositioning : MonoBehaviour
         currentAngle += new Vector3(vert,horiz,0);
         transform.rotation = Quaternion.Euler(currentAngle);
         player.transform.Rotate(0,horiz,0);
-        transform.position = player.transform.position+ new Vector3(0,1,0);
+        transform.position = player.transform.position+ new Vector3(x_camera_adjust,y_camera_adjust,0);
         
     }
 }
